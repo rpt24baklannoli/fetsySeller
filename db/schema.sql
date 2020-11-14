@@ -1,14 +1,18 @@
-DROP DATABASE IF EXISTS recommendations;
+DROP DATABASE IF EXISTS seller;
 
-CREATE DATABASE recommendations;
+CREATE DATABASE seller;
 
-USE recommendations;
+\c seller;
 
-CREATE TABLE IF NOT EXISTS recommended_items (
-  id integer PRIMARY KEY,
-  item_name varchar,
+CREATE TABLE IF NOT EXISTS seller_info (
+  seller_id SERIAL PRIMARY KEY,
+  seller_rating integer,
+  total_sales integer,
   seller_name varchar,
-  price integer,
-  image_url varchar,
-  keywords varchar[]
+  seller_city varchar,
+  seller_country varchar,
+  on_etsy_since varchar
+  -- CONSTRAINT fk_item
+  --   FOREIGN KEY(item_id)
+  --     REFERENCES items(item_id)
 )
