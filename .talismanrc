@@ -1,9 +1,0 @@
-fileignoreconfig:
-- filename: db/schema.sql
-  checksum: 7413527b395ec0dbbae28877e3d1781b1effd0e4d839bf174f79f7d387ab67dd
-- filename: package-lock.json
-  checksum: 030e67d9df64af97385049775685dacb453b26957522e06e8e8a6e5a1f80acb4
-- filename: react-client/dist/bundle.js
-  checksum: 73e09748e1715a687a17b93b2118d8df87d799bcce6e262937504e1479f2eb11
-- filename: react-client/dist/bundle.js.map
-  checksum: 98ab8fe0fbcb79c15eda6152884356aae5f96b3fdc75a05e0425bb390e7c530e
