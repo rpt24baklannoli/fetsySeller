@@ -13,7 +13,8 @@ CREATE TABLE seller_info (
   seller_name varchar,
   seller_city varchar,
   seller_state varchar,
-  on_etsy_since integer
+  on_etsy_since integer,
+  item_id SERIAL
   -- CONSTRAINT fk_item
   --   FOREIGN KEY(item_id)
   --     REFERENCES items(item_id)
