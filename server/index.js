@@ -8,6 +8,8 @@ app.use(express.static('./react-client/dist'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+app.use('/items/:item_id', express.static('react-client/dist'));
+
 app.get('/items/:item_id/seller', (req, res) => {
   let item_id = req.params.item_id;
   let query = 'SELECT * FROM seller_info WHERE item_id = $1';
@@ -20,9 +22,5 @@ app.get('/items/:item_id/seller', (req, res) => {
     }
   })
 })
-
-// app.listen(port, () => {
-//   console.log(`Example app listening at http://localhost:${port}`)
-// })
 
 module.exports = app;

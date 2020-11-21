@@ -9,6 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      itemId: null,
       seller: [],
       recommendations: [],
       images: []
@@ -18,13 +19,19 @@ class App extends React.Component {
   componentDidMount() {
     let that = this;
 
+    let pathname = window.location.pathname;
+    let item_id = pathname.slice(7,8);
+
     // get request for seller data
     axios({
       method: 'get',
-      url: '/items/1/seller',
+      url: `/items/${item_id}/seller`,
     })
     .then(function(response) {
-      that.setState({ seller: response.data.rows[0]});
+      that.setState({
+        itemId: item_id,
+        seller: response.data.rows[0]
+      });
     })
     .catch(function(error) {
       console.log(error)
@@ -69,8 +76,8 @@ class App extends React.Component {
     return (
       <div>
         <Seller seller={this.state.seller} />
-        <MoreFromShop />
-        <Recommendations />
+        <MoreFromShop items={this.state.recommendations} images={this.state.images} seller={this.state.seller} />
+        <Recommendations items={this.state.recommendations} images={this.state.images} seller={this.state.seller} />
       </div>
     )
   }
