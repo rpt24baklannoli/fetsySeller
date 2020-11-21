@@ -21,15 +21,16 @@ describe('create seller data', () => {
 
 })
 
-describe('get seller data', () => {
+describe('GET data', () => {
 
-  // afterAll(done => {
-  //   server.close();
-  //   done();
-  // });
+  it('GET seller info from seller service', async (done) => {
+    const { body } = await request(app).get('/items/1/seller');
+    expect(body).toBeDefined();
+    done();
+  })
 
-  it('GET /seller/items/ successfully', async (done) => {
-    const { body } = await request(app).get('/seller/items/');
+  it('GET items from shopping service', async(done) => {
+    const { body } = await request(app).get('/shopping/items');
     expect(body).toBeDefined();
     done();
   })
