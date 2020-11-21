@@ -15,7 +15,7 @@ app.get('/items/:item_id/seller', (req, res) => {
   let args = [item_id]
   pool.query(query, args, (err, data) => {
     if (err) {
-      console.log(err)
+      console.log("error with single seller get")
     } else {
       res.status(200).send(data)
     }
