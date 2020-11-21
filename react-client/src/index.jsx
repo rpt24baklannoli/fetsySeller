@@ -12,64 +12,38 @@ class App extends React.Component {
       itemId: null,
       seller: [],
       recommendations: [],
-      images: []
+      images: [
+        'https://picsum.photos/200', 'https://picsum.photos/200', 'https://picsum.photos/200', 'https://picsum.photos/200',
+        'https://picsum.photos/200', 'https://picsum.photos/200', 'https://picsum.photos/200', 'https://picsum.photos/200',
+        'https://picsum.photos/200', 'https://picsum.photos/200'
+      ]
     }
   }
 
   componentDidMount() {
-    let that = this;
+   let that = this;
+   let item_id = window.location.pathname.slice(7, 8);
 
-    let pathname = window.location.pathname;
-    let item_id = pathname.slice(7,8);
+   let sellerRequest = axios.get(`/items/${item_id}/seller`);
+   let itemsRequest = axios.get('/shopping/items');
+  //  let imagesRequest = axios.get('/seller/images');
 
-    // get request for seller data
-    axios({
-      method: 'get',
-      url: `/items/${item_id}/seller`,
-    })
-    .then(function(response) {
-      that.setState({
-        itemId: item_id,
-        seller: response.data.rows[0]
-      });
-    })
-    .catch(function(error) {
-      console.log(error)
-    })
+   axios.all([sellerRequest, itemsRequest, /*imagesRequest*/ ]).then(axios.spread((...responses) => {
+     const sellerResponse = responses[0];
+     const itemsResponse = responses[1];
+    //  const imagesResponse = responses[2];
 
-    // // get request (loop = 8) for item data
-    // let itemRequests = 8;
-    // while (itemRequests > 0) {
-    //   axios({
-    //     method: 'get',
-    //     // url: '/seller/items/',
-    //   })
-    //     .then(function (response) {
-    //       itemRequests--;
-    //       let joined = that.state.recommendations.concat(response)
-    //       that.setState({ recommendations: joined });
-    //     })
-    //     .catch(function (error) {
-    //       console.log(error)
-    //     })
-    // }
+    that.setState({
+       itemId: item_id,
+       seller: sellerResponse.data.rows[0],
+       recommendations: itemsResponse.data,
+      //  images: imagesResponse.data
+     })
 
-    // // get request (loop = 8) for images
-    // let imageRequests = 8;
-    // while (imageRequests > 0) {
-    //   axios({
-    //     method: 'get',
-    //     // url: '/seller/items/',
-    //   })
-    //     .then(function (response) {
-    //       imageRequests--;
-    //       let joined = that.state.images.concat(response)
-    //       that.setState({ images: joined });
-    //     })
-    //     .catch(function (error) {
-    //       console.log(error)
-    //     })
-    // }
+   })).catch(errors => {
+     console.log(errors);
+   })
+
   }
 
   render() {

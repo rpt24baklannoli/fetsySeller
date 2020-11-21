@@ -3,6 +3,7 @@ const pool = require('./../db/index.js');
 const db = require('./../db/index.js');
 const app = express()
 const port = 3005
+const axios = require('axios')
 
 app.use(express.static('./react-client/dist'))
 app.use(express.json())
@@ -20,6 +21,13 @@ app.get('/items/:item_id/seller', (req, res) => {
     } else {
       res.status(200).send(data)
     }
+  })
+})
+
+app.get('/shopping/items', (req, res) => {
+  axios.get('http://localhost:3004/shopping/items').then(function(response) {
+    console.log(response.data)
+    res.send(response.data)
   })
 })
 

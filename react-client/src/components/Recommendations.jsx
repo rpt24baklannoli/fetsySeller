@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import ProductTile from './ProductTile.jsx';
 
 function Recommendations(props) {
-  let items = props.items.slice(4);
-  let images = props.images.slice(4);
+  let items = props.items.slice(4, 8);
+  let images = props.images.slice(4, 8);
   return (
     <div>
       <h2>You may also like</h2>

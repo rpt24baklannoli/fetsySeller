@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ProductTile from './ProductTile.jsx';
 
 function MoreFromShop(props) {
   let items = props.items.slice(0, 4);

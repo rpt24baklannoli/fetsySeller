@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 function ProductTile(props) {
   return (
     <div>
-      <image src={props.image}></image>
+      <img src={props.image}></img>
       <div>{props.item.item_name}</div>
       <div>{props.seller.seller_name}</div>
       <div>{props.item.price}</div>
