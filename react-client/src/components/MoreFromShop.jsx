@@ -42,7 +42,7 @@ function MoreFromShop(props) {
     <div>
       <H2>More from this Shop</H2>
       <button>See more</button>
-      <div id="more-from-shop">
+      <div id="more-from-shop-container">
         {items.map((item, index) =>
           <ProductTile id="tile" item={item} image={images[index].image_url} seller={props.seller}/>
         )}

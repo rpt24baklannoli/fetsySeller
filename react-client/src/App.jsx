@@ -45,14 +45,14 @@ class App extends React.Component {
   render() {
     return (
       <div id="container">
-        <div id="empty"></div>
-        <div id="seller">
+        <div id="empty-module"></div>
+        <div id="seller-module">
           <Seller seller={this.state.seller} />
         </div>
-        <div id="more">
+        <div id="more-module">
           <MoreFromShop items={this.state.recommendations} images={this.state.images} seller={this.state.seller} />
         </div>
-        <div id="recommendations">
+        <div id="recommendations-module">
           <Recommendations items={this.state.recommendations} images={this.state.images} seller={this.state.seller} />
         </div>
       </div>

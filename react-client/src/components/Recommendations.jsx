@@ -19,7 +19,7 @@ function Recommendations(props) {
     <div>
       <H2>You may also like</H2>
       <button>See more</button>
-      <div id="recommendations">
+      <div id="recommendations-container">
         {items.map((item, index) =>
           <ProductTile item={item} image={images[index].image_url} seller={props.seller} />
         )}
