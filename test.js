@@ -55,11 +55,11 @@ describe('front end renders', () => {
     shallow(<App />);
   })
 
-  it("renders child component", () => {
-    const wrapper = shallow(<App />);
-    const seller = <div>Test</div>
-    expect(wrapper.contains(seller)).toEqual(true);
-  });
+  // it("renders child component", () => {
+  //   const wrapper = shallow(<App />);
+  //   const seller = <div>Test</div>
+  //   expect(wrapper.contains(seller)).toEqual(true);
+  // });
 })
 
 const seller = {
@@ -103,7 +103,7 @@ describe('props populate', () => {
   it("contains item price", () => {
     const wrapper = mount(<ProductTile seller={seller} image={image} item={item} />);
     const value = wrapper.find("h5").text();
-    expect(value).toEqual("10.13");
+    expect(value).toEqual("$10.13");
   });
 
   it("accepts image props", () => {
