@@ -19,16 +19,16 @@ class App extends React.Component {
   componentDidMount() {
     let that = this;
     let item_id = window.location.pathname.slice(7, 8);
-
+    console.log(item_id)
     let sellerRequest = axios.get(`/items/${item_id}/seller`);
     let itemsRequest = axios.get('/shopping/items');
     let imagesRequest = axios.get('/item/images/distinct');
-
+console.log('got here one')
     axios.all([sellerRequest, itemsRequest, imagesRequest]).then(axios.spread((...responses) => {
       const sellerResponse = responses[0];
       const itemsResponse = responses[1];
       const imagesResponse = responses[2];
-
+console.log('got here two')
       that.setState({
         itemId: item_id,
         seller: sellerResponse.data.rows[0],

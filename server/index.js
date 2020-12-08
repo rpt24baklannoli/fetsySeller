@@ -23,8 +23,9 @@ app.get('/items/:item_id/seller', (req, res) => {
 })
 
 app.get('/shopping/items', (req, res) => {
+  console.log('get request for shopping data')
   axios.get('http://localhost:3004/shopping/items').then(function(response) {
-    console.log(response.data)
+    // console.log('shopping data: ', response.data)
     res.send(response.data)
   })
 })
