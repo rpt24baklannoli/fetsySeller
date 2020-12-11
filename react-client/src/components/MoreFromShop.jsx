@@ -35,6 +35,13 @@ const BUTTON = styled.button`
   border-bottom-right-radius: 24px;
 `
 
+const MOREFROMSHOP = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex: 1;
+`
+
 function MoreFromShop(props) {
   let items = props.items.slice(0, 4);
   let images = props.images.slice(0, 4);
@@ -42,11 +49,11 @@ function MoreFromShop(props) {
     <div>
       <H2>More from this Shop</H2>
       <button>See more</button>
-      <div id="more-from-shop-container">
+      <MOREFROMSHOP id="more-from-shop-container">
         {items.map((item, index) =>
           <ProductTile id="tile" item={item} image={images[index].image_url} seller={props.seller}/>
         )}
-      </div>
+      </MOREFROMSHOP>
     </div>
   )
 }

@@ -25,11 +25,16 @@ const DIV = styled.div`
   font-weight: 700;
   line-height: 24px;
 `
-
+const SELLERIMG = styled.img`
+  height: 75px;
+  width: 85px;
+  border-radius: 7px;
+`
 
 function Seller(props) {
   return (
     <DIV>
+      <SELLERIMG src="https://picsum.photos/75"></SELLERIMG>
       <DIV>Meet your sellers</DIV>
       <H2>Shop Owner</H2>
       <DIV>Owner of {props.seller.seller_name}</DIV>
