@@ -92,7 +92,7 @@ describe('props populate', () => {
   });
   it("contains seller name", () => {
     const wrapper = mount(<Seller seller={seller} />);
-    const value = wrapper.find("h3").text();
+    const value = wrapper.find("SELLERNAME").text();
     expect(value).toEqual("Message Forest");
   });
 
