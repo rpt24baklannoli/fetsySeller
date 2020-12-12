@@ -22,20 +22,24 @@ const FLEXCONTAINER = styled.div`
 `
 
 const EMPTYDIV = styled.div`
-  width: 75%;
+  width: 60%;
 `
 
 const SELLER = styled.div`
-  width: 25%;
+  width: 40%;
   height: 200px;
 `
 
 const MORE = styled.div`
+  display: flex;
+  justify-content: space-between;
   width: 50%;
   background-color: rgb(248, 235, 230);
 `
 
 const RECOMMENDATIONS = styled.div`
+  dislay: flex;
+  justify-content: space-between;
   background-color: rgb(248, 235, 230);
   width: 50%;
 `

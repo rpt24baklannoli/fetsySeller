@@ -3,13 +3,20 @@ import ReactDOM from 'react-dom';
 import ProductTile from './ProductTile.jsx';
 import styled from 'styled-components';
 
+const CONTAINER = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-right: 30px;
+  margin-top: 20px;
+`
+
 const H2 = styled.h2`
   font-family: "Guardian-EgypTT",serif;
   font-size: 32px;
   line-height: 36px;
-  font-weight: 300;
+  font-weight: 50;
   letter-spacing: 0.5px;
-  color: #222222;
+  color: rgb(34, 34, 34)
 `
 
 const H3 = styled.h3`
@@ -27,7 +34,11 @@ const DIV = styled.div`
 `
 const BUTTON = styled.button`
   background-color: rgba(0, 0, 0, 0);
-  margin-left: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px, 10px, 4px, 10px;
+  width: 90px;
+  line-height: 19.6px;
   font-family: "Graphik Webfont",-apple-system,BlinkMacSystemFont,"Roboto","Droid Sans","Segoe UI","Helvetica",Arial,sans-serif;
   border-bottom-color: rgb(34, 34, 34);
   border-radius: 25px;
@@ -47,8 +58,10 @@ function MoreFromShop(props) {
   let images = props.images.slice(0, 4);
   return (
     <div>
-      <H2>More from this Shop</H2>
-      <button>See more</button>
+      <CONTAINER>
+        <H2>More from this Shop</H2>
+        <BUTTON>See more</BUTTON>
+      </CONTAINER>
       <MOREFROMSHOP id="more-from-shop-container">
         {items.map((item, index) =>
           <ProductTile id="tile" item={item} image={images[index].image_url} seller={props.seller}/>
