@@ -30,8 +30,8 @@ app.get('/shopping/items', (req, res) => {
   })
 })
 
-app.get('/item/images/distinct', (req, res) => {
-  axios.get('http://localhost:3006/item/images/distinct').then(function (response) {
+app.get('/item/images', (req, res) => {
+  axios.get('http://localhost:3006/item/images').then(function (response) {
     console.log('IMAGESS', response.data)
     res.send(response.data)
   })

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const CONTAINER = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-right: 30px;
   margin-top: 20px;
@@ -14,7 +15,7 @@ const H2 = styled.h2`
   font-family: "Guardian-EgypTT",serif;
   font-size: 32px;
   line-height: 36px;
-  font-weight: 50;
+  font-weight: lighter;
   letter-spacing: 0.5px;
   color: rgb(34, 34, 34)
 `
@@ -27,11 +28,6 @@ const H3 = styled.h3`
   color: #595959 !important;
 `
 
-const DIV = styled.div`
-  font-family: "Guardian-EgypTT",serif;
-  font-size: 13px;
-  color: #595959 !important;
-`
 const BUTTON = styled.button`
   background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
@@ -53,11 +49,15 @@ const MOREFROMSHOP = styled.div`
   flex: 1;
 `
 
+const DIV = styled.div`
+  padding-left: 70px;
+`
+
 function MoreFromShop(props) {
   let items = props.items.slice(0, 4);
   let images = props.images.slice(0, 4);
   return (
-    <div>
+    <DIV>
       <CONTAINER>
         <H2>More from this Shop</H2>
         <BUTTON>See more</BUTTON>
@@ -67,7 +67,7 @@ function MoreFromShop(props) {
           <ProductTile id="tile" item={item} image={images[index].image_url} seller={props.seller}/>
         )}
       </MOREFROMSHOP>
-    </div>
+    </DIV>
   )
 }
 

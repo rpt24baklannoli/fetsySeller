@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 const CONTAINER = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-right: 30px;
   margin-top: 20px;
@@ -13,7 +14,7 @@ const H2 = styled.h2`
   font-family: "Guardian-EgypTT",serif;
   font-size: 32px;
   line-height: 36px;
-  font-weight: 50;
+  font-weight: lighter;
   letter-spacing: 0.5px;
   color: rgb(34, 34, 34)
 `
@@ -35,16 +36,18 @@ const RECOMMENDATION = styled.div`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  flex: 1;
+  flex-grow: 1;
 `
-// const FLEXITEM = styled.div`
-// `
+const DIV = styled.div`
+  padding-left: 20px;
+  padding-right: 70px;
+`
 
 function Recommendations(props) {
   let items = props.items.slice(4, 8);
   let images = props.images.slice(4, 8);
   return (
-    <div>
+    <DIV>
       <CONTAINER>
         <H2>You may also like</H2>
         <BUTTON>See more</BUTTON>
@@ -54,7 +57,7 @@ function Recommendations(props) {
           <ProductTile item={item} image={images[index].image_url} seller={props.seller} />
         )}
       </RECOMMENDATION>
-    </div>
+    </DIV>
   )
 }
 

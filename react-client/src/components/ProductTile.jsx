@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import FreeShipping from './FreeShipping.jsx';
 
 const FIGURE = styled.figure`
   flex-basis: 50%;
@@ -8,12 +9,19 @@ const FIGURE = styled.figure`
   flex-shrink: 1;
   max-width: 50%;
   min-height: 50%;
-  padding-bottom: 9px;
-  padding-right: 9px;
-  padding-left: 9px;
-  padding-top: 9px;
+  width: 40%;
+  padding: 9px, 9px, 9px, 9px;
   position: relative;
   text-size-adjust: 100%;
+  border-radius: 7px;
+  margin-right: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  :hover{
+    background-color: white;
+    box-shadow: 5px, 5px, 5px, rgb(220,220,220)
+  }
 `
 
 
@@ -50,16 +58,16 @@ const IMG = styled.img`
   height: 180px;
   border-radius: 7px;
   cursor: pointer;
-
+  margin: 9px, 9px, 9px, 9px;
 `
 
 function ProductTile(props) {
   let shipping;
   if (props.item.us_free_shipping) {
-    shipping = 'Free shipping eligible';
+    shipping = <FreeShipping />
   }
   return (
-    <FIGURE class="flex-item">
+    <FIGURE class="tile">
       <IMG src={props.image}></IMG>
       <ITEM>{props.item.item_name}</ITEM>
       <DIV>{props.seller.seller_name}</DIV>
