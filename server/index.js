@@ -24,14 +24,14 @@ app.get('/items/:item_id/seller', (req, res) => {
 
 app.get('/shopping/items', (req, res) => {
   console.log('get request for shopping data')
-  axios.get('http://localhost:3004/shopping/items').then(function(response) {
+  axios.get('http://18.222.223.190:3004/shopping/items').then(function(response) {
     // console.log('shopping data: ', response.data)
     res.send(response.data)
   })
 })
 
 app.get('/item/images', (req, res) => {
-  axios.get('http://localhost:3006/item/images').then(function (response) {
+  axios.get('http://13.52.213.118:3006/item/images').then(function (response) {
     console.log('IMAGESS', response.data)
     res.send(response.data)
   })
