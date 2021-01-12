@@ -2,10 +2,14 @@ const express = require('express');
 const pool = require('./../db/index.js');
 const app = express()
 const axios = require('axios')
+var compression = require('compression')
 
 app.use(express.static('./react-client/dist'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+
+// compress all responses
+app.use(compression())
 
 app.use('/items/:item_id', express.static('react-client/dist'));
 
