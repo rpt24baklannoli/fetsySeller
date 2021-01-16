@@ -18,10 +18,6 @@ const FIGURE = styled.figure`
   margin-bottom: 10px;
   margin-top: 10px;
   cursor: pointer;
-  :hover{
-    background-color: white;
-    box-shadow: 5px, 5px, 5px, rgb(220,220,220)
-  }
 `
 
 
