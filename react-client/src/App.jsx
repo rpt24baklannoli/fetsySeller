@@ -66,13 +66,15 @@ class App extends React.Component {
   }
 
   rotateImages(array) {
-    let i = 0;
-    let rotateNum = Number(this.state.itemId) + Math.random()*100
-    while (i < rotateNum) {
-      array.unshift(array.pop());
-      i++;
+    if (array) {
+      let i = 0;
+      let rotateNum = Number(this.state.itemId) + Math.random()*100
+      while (i < rotateNum) {
+        array.unshift(array.pop());
+        i++;
+      }
+      return array;
     }
-    return array;
   }
 
   componentDidMount() {
@@ -115,10 +117,10 @@ class App extends React.Component {
         </SELLER>
         {/* <SPACE></SPACE> */}
         <MORE id="more-module">
-          <MoreFromShop items={this.state.recommendations} images={this.state.images} seller={this.state.seller} />
+          {/* <MoreFromShop items={this.state.recommendations} images={this.state.images} seller={this.state.seller} /> */}
         </MORE>
         <RECOMMENDATIONS id="recommendations-module">
-          <Recommendations items={this.state.recommendations} images={this.state.images} seller={this.state.seller} />
+          {/* <Recommendations items={this.state.recommendations} images={this.state.images} seller={this.state.seller} /> */}
         </RECOMMENDATIONS>
       </FLEXCONTAINER>
     )
