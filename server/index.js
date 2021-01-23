@@ -1,7 +1,8 @@
 const express = require('express');
-const pool = require('./../db/index.js');
+// const db = require('./../db/index.js');
 const app = express();
 const axios = require('axios');
+const seller = require('../controller/index.js');
 var compression = require('compression');
 
 app.use(express.static('./react-client/dist'));
@@ -14,16 +15,14 @@ app.use(compression());
 app.use('/items/:item_id', express.static('react-client/dist'));
 
 app.get('/items/:item_id/seller', (req, res) => {
-  let item_id = req.params.item_id;
-  let query = 'SELECT * FROM seller_info WHERE item_id = $1';
+  let { item_id } = req.params;
   let args = [item_id];
-  pool.query(query, args, (err, data) => {
-    if (err) {
-      console.error("error with single seller get");
-      res.sendStatus(404);
-    } else {
-      res.status(200).send(data);
-    }
+  seller.read(args)
+  .then(sellerData => {
+    res.status(200).send(sellerData);
+  })
+  .catch(err => {
+    res.status(404).send(err);
   });
 });
 
