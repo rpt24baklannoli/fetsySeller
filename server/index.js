@@ -20,10 +20,10 @@ app.post('/items/:item_id/seller', (req, res) => {
   let args = [seller_rating, total_sales, seller_name, seller_city, seller_state, on_etsy_since];
   seller.create(args)
   .then(() => {
-    res.status(201).end();
+    res.status(200).send('Successfully added new seller');
   })
   .catch(err => {
-    res.status(400).send(err);
+    res.status(404).send('Failed to add new seller, Error: ', err);
   });
 });
 
@@ -45,10 +45,10 @@ app.put('/items/:item_id/seller', (req, res) => {
   let body = req.body;
   seller.update(args, body)
   .then(() => {
-    res.sendStatus(200);
+    res.status(200).send('Successfully updated seller information');
   })
   .catch(err => {
-    res.status(404).send(err);
+    res.status(404).send('Failed to update seller information, Error: ', err);
   });
 });
 
@@ -57,10 +57,10 @@ app.delete('/items/:item_id/seller', (req, res) => {
   let args = [item_id];
   seller.delete(args)
   .then(() => {
-    res.status(200).end();
+    res.status(200).send('Successfully deleted seller');
   })
   .catch(err => {
-    res.status(404).end();
+    res.status(404).send('Failed to delete seller, Error: ', err);
   })
 });
 
