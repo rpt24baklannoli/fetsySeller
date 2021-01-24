@@ -25,8 +25,16 @@ let model = {
       });
     });
   },
-  put:  () => {
-    console.log(`you've hit model.put endpoint`);
+  put: (query) => {
+    return new Promise((resolve, reject) => {
+      db.query(query, (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    });
   },
   delete: (args) => {
     let query = 'DELETE FROM seller_info WHERE item_id = $1';

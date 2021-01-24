@@ -40,7 +40,16 @@ app.get('/items/:item_id/seller', (req, res) => {
 });
 
 app.put('/items/:item_id/seller', (req, res) => {
-
+  let { item_id } = req.params;
+  let args = [item_id];
+  let body = req.body;
+  seller.update(args, body)
+  .then(() => {
+    res.sendStatus(200);
+  })
+  .catch(err => {
+    res.status(404).send(err);
+  });
 });
 
 app.delete('/items/:item_id/seller', (req, res) => {
