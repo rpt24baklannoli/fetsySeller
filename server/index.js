@@ -32,7 +32,7 @@ app.get('/items/:item_id/seller', (req, res) => {
   let args = [item_id];
   seller.read(args)
   .then(sellerData => {
-    res.status(200).send(sellerData);
+    res.status(200).send(sellerData.rows[0]);
   })
   .catch(err => {
     res.status(404).send(err);

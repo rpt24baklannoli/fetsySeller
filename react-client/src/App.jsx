@@ -93,7 +93,7 @@ class App extends React.Component {
     //   let itemsResponse = responses[1].data;
     //   let imagesResponse = responses[2].data.rows;
     axios.all([sellerRequest]).then(result => {
-      let sellerResponse = result[0].data.rows[0];
+      let sellerResponse = result[0].data;
       let itemsResponse = MockData.items;
       let imagesResponse = MockData.images;
 
