@@ -1,8 +1,17 @@
 const db = require('../db/index.js');
 
 let model = {
-  post: () => {
-    console.log(`you've hit model.post endpoint`);
+  post: (args) => {
+    let query = 'INSERT INTO seller_info (seller_rating, total_sales, seller_name, seller_city, seller_state, on_etsy_since) VALUES ($1, $2, $3, $4, $5, $6)';
+    return new Promise((resolve, reject) => {
+      db.query(query, args, (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    });
   },
   get: (args) => {
     let query = 'SELECT * FROM seller_info WHERE item_id = $1';
@@ -19,8 +28,17 @@ let model = {
   put:  () => {
     console.log(`you've hit model.put endpoint`);
   },
-  delete: () => {
-    console.log(`you've hit model.delete endpoint`);
+  delete: (args) => {
+    let query = 'DELETE FROM seller_info WHERE item_id = $1';
+    return new Promise((resolve, reject) => {
+      db.query(query, args, (err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    });
   }
 };
 

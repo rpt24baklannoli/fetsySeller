@@ -14,6 +14,19 @@ app.use(compression());
 
 app.use('/items/:item_id', express.static('react-client/dist'));
 
+app.post('/items/:item_id/seller', (req, res) => {
+  let { item_id } = req.params;
+  let { seller_rating, total_sales, seller_name, seller_city, seller_state, on_etsy_since } = req.body;
+  let args = [seller_rating, total_sales, seller_name, seller_city, seller_state, on_etsy_since];
+  seller.create(args)
+  .then(() => {
+    res.status(201).end();
+  })
+  .catch(err => {
+    res.status(400).send(err);
+  });
+});
+
 app.get('/items/:item_id/seller', (req, res) => {
   let { item_id } = req.params;
   let args = [item_id];
@@ -24,6 +37,22 @@ app.get('/items/:item_id/seller', (req, res) => {
   .catch(err => {
     res.status(404).send(err);
   });
+});
+
+app.put('/items/:item_id/seller', (req, res) => {
+
+});
+
+app.delete('/items/:item_id/seller', (req, res) => {
+  let { item_id } = req.params;
+  let args = [item_id];
+  seller.delete(args)
+  .then(() => {
+    res.status(200).end();
+  })
+  .catch(err => {
+    res.status(404).end();
+  })
 });
 
 app.get('/shopping/items', (req, res) => {
