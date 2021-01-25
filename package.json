@@ -40,7 +40,7 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "nodemon server/server.js && nodemon server/index.js",
+    "start": "nodemon server/server.js",
     "dev:react": "webpack --watch",
     "db:setup": "psql < db/schema.sql",
     "db:seed": "node db/seed.js"
