@@ -57,7 +57,7 @@ Sample Response:
 }
 ```
 
-## Create (POST) A New Seller
+## Create (POST) a New Seller
 > Example use case: add a new seller to the database for an item
 
 #### Input
@@ -105,7 +105,7 @@ Request Body Example:
 
 > Error: 404 status code, and a response of "Failed to update seller information, Error: {error}"
 
-## Remove (DELETE) An Item
+## DELETE a Seller
 > Example use case: remove a seller of a given item
 
 #### Input
