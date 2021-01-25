@@ -105,11 +105,7 @@ Request Body Example:
 
 > Error: 404 status code, and a response of "Failed to update seller information, Error: {error}"
 
-<<<<<<< HEAD
 ## DELETE a Seller
-=======
-## Remove (DELETE) a Seller
->>>>>>> c33fc83d940128611509433db3663d131a98f630
 > Example use case: remove a seller of a given item
 
 #### Input
