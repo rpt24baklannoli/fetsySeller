@@ -19,7 +19,8 @@ app.get('/items/:item_id/seller', (req, res) => {
   let args = [item_id];
   pool.query(query, args, (err, data) => {
     if (err) {
-      console.log("error with single seller get");
+      console.error("error with single seller get");
+      res.sendStatus(404);
     } else {
       res.status(200).send(data);
     }
@@ -33,7 +34,7 @@ app.get('/shopping/items', (req, res) => {
   })
   .catch(err => {
     console.error(err);
-    res.end();
+    res.sendStatus(500);
   });
 });
 
@@ -44,7 +45,7 @@ app.get('/item/images', (req, res) => {
   })
   .catch(err => {
     console.error(err);
-    res.end();
+    res.sendStatus(500);
   });
 });
 

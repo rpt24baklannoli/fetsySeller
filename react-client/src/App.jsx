@@ -6,7 +6,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import GlobalFonts from './fonts/fonts';
 import GraphikWebfont from './fonts/HKGrotesk-Light.woff';
-
+import MockData from '../../mock/index.js';
 
 const FLEXCONTAINER = styled.div`
   display: flex;
@@ -78,30 +78,33 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let that = this;
     let item_id = window.location.pathname.slice(7, 8);
 
-    that.setState({
+    this.setState({
       itemId: item_id
     })
 
     let sellerRequest = axios.get(`/items/${item_id}/seller`);
-    let itemsRequest = axios.get('/shopping/items');
-    let imagesRequest = axios.get('/item/images');
+    // let itemsRequest = axios.get('/shopping/items');
+    // let imagesRequest = axios.get('/item/images');
 
-    axios.all([sellerRequest, itemsRequest, imagesRequest]).then(axios.spread((...responses) => {
-      let sellerResponse = responses[0].data.rows[0];
-      let itemsResponse = responses[1].data;
-      let imagesResponse = responses[2].data.rows;
+    // axios.all([sellerRequest, itemsRequest, imagesRequest]).then(axios.spread((...responses) => {
+    //   let sellerResponse = responses[0].data.rows[0];
+    //   let itemsResponse = responses[1].data;
+    //   let imagesResponse = responses[2].data.rows;
+    axios.all([sellerRequest]).then(result => {
+      let sellerResponse = result[0].data.rows[0];
+      let itemsResponse = MockData.items;
+      let imagesResponse = MockData.images;
 
       let rotatedImages = this.rotateImages(imagesResponse)
 
-      that.setState({
+      this.setState({
         seller: sellerResponse,
         recommendations: itemsResponse,
         images: rotatedImages
       })
-    })).catch(errors => {
+    }).catch(errors => {
       console.log(errors);
     })
 
@@ -117,15 +120,14 @@ class App extends React.Component {
         </SELLER>
         {/* <SPACE></SPACE> */}
         <MORE id="more-module">
-          {/* <MoreFromShop items={this.state.recommendations} images={this.state.images} seller={this.state.seller} /> */}
+          <MoreFromShop items={this.state.recommendations} images={this.state.images} seller={this.state.seller} />
         </MORE>
         <RECOMMENDATIONS id="recommendations-module">
-          {/* <Recommendations items={this.state.recommendations} images={this.state.images} seller={this.state.seller} /> */}
+          <Recommendations items={this.state.recommendations} images={this.state.images} seller={this.state.seller} />
         </RECOMMENDATIONS>
       </FLEXCONTAINER>
     )
   }
-
 }
 
 export default App;
