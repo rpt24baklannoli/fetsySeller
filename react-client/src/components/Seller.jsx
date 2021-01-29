@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import GlobalFonts from '../fonts/fonts';
-import GraphikWebfont from '../fonts/HKGrotesk-Light.woff';
+// import GraphikWebfont from '../fonts/HKGrotesk-Light.woff';
 
 const MEET = styled.div`
   font-family: "Graphik Webfont", -apple-system, system-ui, Roboto, "Droid Sans", "Segoe UI", Helvetica, Arial, sans-serif;
