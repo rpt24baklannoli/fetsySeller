@@ -4,8 +4,8 @@ import MoreFromShop from './components/MoreFromShop.jsx';
 import Recommendations from './components/Recommendations.jsx';
 import axios from 'axios';
 import styled from 'styled-components';
-import GlobalFonts from './fonts/fonts';
-import GraphikWebfont from './fonts/HKGrotesk-Light.woff';
+// import GlobalFonts from './fonts/fonts';
+// import GraphikWebfont from './fonts/HKGrotesk-Light.woff';
 import MockData from '../../mock/index.js';
 
 const FLEXCONTAINER = styled.div`
@@ -113,7 +113,7 @@ class App extends React.Component {
   render() {
     return (
       <FLEXCONTAINER id="container">
-        <GlobalFonts />
+        {/* <GlobalFonts /> */}
         <EMPTYDIV id="empty-module"></EMPTYDIV>
         <SELLER id="seller-module">
           <Seller seller={this.state.seller} />
