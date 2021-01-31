@@ -2,13 +2,13 @@ const db = require('../db/index.js');
 
 let model = {
   post: (args) => {
-    let query = 'INSERT INTO seller_info (seller_rating, total_sales, seller_name, seller_city, seller_state, on_etsy_since) VALUES ($1, $2, $3, $4, $5, $6)';
+    let query = 'INSERT INTO seller_info (seller_rating, total_sales, seller_name, seller_city, seller_state, on_etsy_since) VALUES ($1, $2, $3, $4, $5, $6) RETURNING item_id';
     return new Promise((resolve, reject) => {
-      db.query(query, args, (err) => {
+      db.query(query, args, (err, data) => {
         if (err) {
           reject(err);
         } else {
-          resolve();
+          resolve(data.rows[0]);
         }
       });
     });
@@ -27,23 +27,23 @@ let model = {
   },
   put: (query) => {
     return new Promise((resolve, reject) => {
-      db.query(query, (err) => {
+      db.query(query, (err, data) => {
         if (err) {
           reject(err);
         } else {
-          resolve();
+          resolve(data.rows[0]);
         }
       });
     });
   },
   delete: (args) => {
-    let query = 'DELETE FROM seller_info WHERE item_id = $1';
+    let query = 'DELETE FROM seller_info WHERE item_id = $1 RETURNING item_id';
     return new Promise((resolve, reject) => {
-      db.query(query, args, (err) => {
+      db.query(query, args, (err, data) => {
         if (err) {
           reject(err);
         } else {
-          resolve();
+          resolve(data.rows[0]);
         }
       });
     });

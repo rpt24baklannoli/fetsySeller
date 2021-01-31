@@ -19,8 +19,8 @@ app.post('/items/:item_id/seller', (req, res) => {
   let { seller_rating, total_sales, seller_name, seller_city, seller_state, on_etsy_since } = req.body;
   let args = [seller_rating, total_sales, seller_name, seller_city, seller_state, on_etsy_since];
   seller.create(args)
-  .then(() => {
-    res.status(200).send('Successfully added new seller');
+  .then((data) => {
+    res.status(200).send(data);
   })
   .catch(err => {
     res.status(404).send('Failed to add new seller, Error: ', err);
@@ -44,8 +44,8 @@ app.put('/items/:item_id/seller', (req, res) => {
   let args = [item_id];
   let body = req.body;
   seller.update(args, body)
-  .then(() => {
-    res.status(200).send('Successfully updated seller information');
+  .then((data) => {
+    res.status(200).send(data);
   })
   .catch(err => {
     res.status(404).send('Failed to update seller information, Error: ', err);
@@ -56,8 +56,8 @@ app.delete('/items/:item_id/seller', (req, res) => {
   let { item_id } = req.params;
   let args = [item_id];
   seller.delete(args)
-  .then(() => {
-    res.status(200).send('Successfully deleted seller');
+  .then((data) => {
+    res.status(200).send(data);
   })
   .catch(err => {
     res.status(404).send('Failed to delete seller, Error: ', err);

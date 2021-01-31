@@ -7,7 +7,7 @@ let buildUpdateQuery = (updateObject, [ item_id ]) => {
       updates += `${prop} = ${updateObject[prop]}`;
     }
   }
-  return `UPDATE seller_info SET ${updates} WHERE item_id = ${item_id}`
+  return `UPDATE seller_info SET ${updates} WHERE item_id = ${item_id} RETURNING item_id`
 }
 
 module.exports.buildUpdateQuery = buildUpdateQuery;
