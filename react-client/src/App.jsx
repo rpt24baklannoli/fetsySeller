@@ -78,7 +78,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let item_id = window.location.pathname.slice(7, 8);
+    let val = Number(window.location.pathname.split('/')[2]);
+    console.log(val);
+    let item_id = isNaN(val) ? 1 : val;
 
     this.setState({
       itemId: item_id
@@ -105,7 +107,7 @@ class App extends React.Component {
         images: rotatedImages
       })
     }).catch(errors => {
-      console.log(errors);
+      console.error(errors);
     })
 
   }
