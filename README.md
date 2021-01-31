@@ -77,7 +77,7 @@ Request Body Example:
 }
 ```
 #### Output
-> Success: 200 status code, and a response of "Successfully added new seller"
+> Success: 200 status code, and responds with an object containing the item_id of new seller
 
 > Error: 404 status code, and a response of "Failed to add new seller, Error: {error}"
 
@@ -101,7 +101,7 @@ Request Body Example:
 
 ```
 #### Output
-> Success: 200 status code, and a response of "Successfully updated seller information"
+> Success: 200 status code, and responds with an object containing the item_id of updated seller
 
 > Error: 404 status code, and a response of "Failed to update seller information, Error: {error}"
 
@@ -113,6 +113,6 @@ Request Body Example:
 Endpoint: '/items/:item_id/seller'
 ```
 #### Output
-> Success: 200 status code, and a response of "Successfully deleted seller"
+> Success: 200 status code, and responds with an object containing the item_id of deleted seller
 
 > Error: 404 status code, and a response of "Failed to delete seller, Error: {error}"
