@@ -48,7 +48,7 @@ app.put('/items/:item_id/seller', (req, res) => {
     res.status(200).send(data);
   })
   .catch(err => {
-    res.status(404).end(err);
+    res.status(404).send('Failed to update seller information, Error: ', err);
   });
 });
 
