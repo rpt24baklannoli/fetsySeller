@@ -53,17 +53,18 @@ describe('GET data', () => {
 
 })
 
-describe('front end renders', () => {
-  it('renders without crashing', () => {
-    // shallow(<App />); // cannot get axios request within App when rendered to not throw an exception
-  })
+// cannot get axios request within App when rendered to not throw an exception
+// describe('front end renders', () => {
+//   it('renders without crashing', () => {
+//     shallow(<App />);
+//   })
 
-  // it("renders child component", () => {
-  //   const wrapper = shallow(<App />);
-  //   const seller = <div>Test</div>
-  //   expect(wrapper.contains(seller)).toEqual(true);
-  // });
-})
+//   it("renders child component", () => {
+//     const wrapper = shallow(<App />);
+//     const seller = <div>Test</div>
+//     expect(wrapper.contains(seller)).toEqual(true);
+//   });
+// })
 
 const seller = {
   "item_id": 1,
