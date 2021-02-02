@@ -173,6 +173,12 @@ describe('CRUD API Endpoints', () => {
     expect(sellerInfo.body.seller_name).toEqual(updateSeller.seller_name);
     expect(sellerInfo.body.seller_city).toEqual(updateSeller.seller_city);
     done();
-  })
+  });
+
+  it ('Deletes a seller by item_id', async (done) => {
+    let data = await request(app).delete(`/items/${item_id}/seller`);
+    expect(data.body.item_id).toEqual(item_id);
+    done();
+  });
 
 })
