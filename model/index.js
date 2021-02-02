@@ -26,15 +26,11 @@ let model = {
     });
   },
   put: (query) => {
-    console.log(query);
     return new Promise((resolve, reject) => {
       db.query(query, (err, data) => {
         if (err) {
-          // console.log('in error');
           reject(err);
         } else {
-          // console.log('in success');
-          // console.log('in model: ', data.rows[0]);
           resolve(data.rows[0]);
         }
       });

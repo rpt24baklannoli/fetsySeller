@@ -45,7 +45,6 @@ app.put('/items/:item_id/seller', (req, res) => {
   let body = req.body;
   seller.update(args, body)
   .then((data) => {
-    console.log('we made it here bruv in server error thing k thx bai');
     res.status(200).send(data);
   })
   .catch(err => {
