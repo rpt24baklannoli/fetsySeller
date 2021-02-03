@@ -1,4 +1,4 @@
-version: 2.1
+version: 2.0
 jobs:
   build:
     docker:
@@ -23,15 +23,17 @@ jobs:
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
-  psql-client:
-    machine:
+  postgresql-client-install:
+    macos:
       steps:
+        - checkout
         - run: sudo apt-get update
         - run: sudo apt-get install postgresql-client-9.6
         - run: whoami
-  test-db:
-    machine:
+  test-db-commands:
+    macos:
       steps:
+        - checkout
         - run: |
             psql \
             -d $TEST_DATABASE_URL \
@@ -44,9 +46,3 @@ jobs:
             psql \
             -d $TEST_DATABASE_URL \
             -c "SELECT * from test"
-workflows:
-  build-environment:
-    jobs:
-      - build
-      - psql-client
-      - test-db
