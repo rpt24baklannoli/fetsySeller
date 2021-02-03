@@ -24,14 +24,12 @@ jobs:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
   postgresql-client-install:
-    macos:
       steps:
         - checkout
         - run: sudo apt-get update
         - run: sudo apt-get install postgresql-client-9.6
         - run: whoami
   test-db-commands:
-    macos:
       steps:
         - checkout
         - run: |
