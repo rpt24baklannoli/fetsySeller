@@ -21,6 +21,11 @@ jobs:
       - checkout
       # Download and cache dependencies
       - run: npm install
+      - run:
+          name: Install postgress client
+          command: |
+            sudo apt-get update
+            sudo apt-get install postgresql-client
       - run: cat package.json
       # Wait for Postgres connection to open.
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
