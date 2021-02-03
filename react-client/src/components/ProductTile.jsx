@@ -63,7 +63,7 @@ function ProductTile(props) {
     shipping = <FreeShipping />
   }
   return (
-    <FIGURE class="tile">
+    <FIGURE className="tile">
       <IMG src={props.image}></IMG>
       <ITEM>{props.item.item_name}</ITEM>
       <DIV>{props.seller.seller_name}</DIV>

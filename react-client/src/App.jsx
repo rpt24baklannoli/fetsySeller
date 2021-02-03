@@ -4,8 +4,8 @@ import MoreFromShop from './components/MoreFromShop.jsx';
 import Recommendations from './components/Recommendations.jsx';
 import axios from 'axios';
 import styled from 'styled-components';
-import GlobalFonts from './fonts/fonts';
-import GraphikWebfont from './fonts/HKGrotesk-Light.woff';
+// import GlobalFonts from './fonts/fonts';
+// import GraphikWebfont from './fonts/HKGrotesk-Light.woff';
 import MockData from '../../mock/index.js';
 
 const FLEXCONTAINER = styled.div`
@@ -78,7 +78,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let item_id = window.location.pathname.slice(7, 8);
+    let val = Number(window.location.pathname.split('/')[2]);
+    console.log(val);
+    let item_id = isNaN(val) ? 1 : val;
 
     this.setState({
       itemId: item_id
@@ -105,7 +107,7 @@ class App extends React.Component {
         images: rotatedImages
       })
     }).catch(errors => {
-      console.log(errors);
+      console.error(errors);
     })
 
   }
@@ -113,7 +115,7 @@ class App extends React.Component {
   render() {
     return (
       <FLEXCONTAINER id="container">
-        <GlobalFonts />
+        {/* <GlobalFonts /> */}
         <EMPTYDIV id="empty-module"></EMPTYDIV>
         <SELLER id="seller-module">
           <Seller seller={this.state.seller} />

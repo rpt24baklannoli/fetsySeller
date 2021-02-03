@@ -6,7 +6,6 @@ let seller = {
   read: model.get,
   update: (args, updateInfo) => {
     let query = utils.buildUpdateQuery(updateInfo, args);
-    console.log(query);
     return model.put(query);
   },
   delete: model.delete
