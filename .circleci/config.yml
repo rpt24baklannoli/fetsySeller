@@ -29,6 +29,7 @@ jobs:
       - run: cat package.json
       # Wait for Postgres connection to open.
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run: `whoami`
       - run: createdb `whoami`
       - run: npm run db:setup
       - run: npm run db:seed
