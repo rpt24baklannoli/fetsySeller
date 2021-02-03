@@ -11,6 +11,7 @@ jobs:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
         environment:
+          POSTGRES_HOST: localhost
           POSTGRES_USER: joselopez
           POSTGRES_DB: seller
     steps:
