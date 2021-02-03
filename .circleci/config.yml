@@ -1,4 +1,6 @@
 version: 2
+orbs:
+  node: circleci/node@3.0.0
 jobs:
   build:
 
@@ -36,8 +38,6 @@ jobs:
           psql \
           -d $TEST_DATABASE_URL \
           -c "SELECT * from test"
-orbs:
-  node: circleci/node@3.0.0
 workflows:
   node-tests:
     jobs:
