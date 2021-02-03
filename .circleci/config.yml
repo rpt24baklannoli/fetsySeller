@@ -20,27 +20,20 @@ jobs:
           command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
           environment:
             DOCKERIZE_VERSION: v0.3.0
-      - run:
-          name: Wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
-  postgresql-client-install:
-      steps:
-        - checkout
-        - run: sudo apt-get update
-        - run: sudo apt-get install postgresql-client-9.6
-        - run: whoami
-  test-db-commands:
-      steps:
-        - checkout
-        - run: |
-            psql \
-            -d $TEST_DATABASE_URL \
-            -c "CREATE TABLE test (name char(25));"
-        - run: |
-            psql \
-            -d $TEST_DATABASE_URL \
-            -c "INSERT INTO test VALUES ('John'), ('Joanna'), ('Jennifer');"
-        - run: |
-            psql \
-            -d $TEST_DATABASE_URL \
-            -c "SELECT * from test"
+      - run: |
+        dockerize -wait tcp://localhost:5432 -timeout 1m
+        sudo apt-get update
+        sudo apt-get install postgresql-client-9.6
+        whoami
+      - run: |
+          psql \
+          -d $TEST_DATABASE_URL \
+          -c "CREATE TABLE test (name char(25));"
+      - run: |
+          psql \
+          -d $TEST_DATABASE_URL \
+          -c "INSERT INTO test VALUES ('John'), ('Joanna'), ('Jennifer');"
+      - run: |
+          psql \
+          -d $TEST_DATABASE_URL \
+          -c "SELECT * from test"
