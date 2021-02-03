@@ -45,7 +45,7 @@ app.put('/items/:item_id/seller', (req, res) => {
   let body = req.body;
   seller.update(args, body)
   .then((data) => {
-    res.status(200).send(data);
+    res.status(200).send(data.rows[0]);
   })
   .catch(err => {
     res.status(404).send('Failed to update seller information, Error: ', err);

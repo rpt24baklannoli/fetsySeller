@@ -10,15 +10,7 @@ let model = {
     return db.query(query, args);
   },
   put: (query) => {
-    return new Promise((resolve, reject) => {
-      db.query(query, (err, data) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(data.rows[0]);
-        }
-      });
-    });
+    return db.query(query);
   },
   delete: (args) => {
     let query = 'DELETE FROM seller_info WHERE item_id = $1 RETURNING item_id';
