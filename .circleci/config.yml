@@ -22,8 +22,7 @@ jobs:
             DOCKERIZE_VERSION: v0.3.0
       - run: |
         dockerize -wait tcp://localhost:5432 -timeout 1m
-        sudo apt-get update
-        sudo apt-get install postgresql-client-9.6
+        npm install postgresql-client-9.6
         whoami
       - run: |
           psql \
