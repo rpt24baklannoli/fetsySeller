@@ -1,9 +1,11 @@
 # Welcome to Fetsy Seller
 
-Get started
+Getting started
 - Run `git clone https://github.com/rpt24baklannoli/fetsySeller.git`
 - Run `npm install`
-- Run `npm run db:setup` and `npm run db:seed`
+- Run `npm run db:setup` and
+- Run `npm run db:generate-data` (this may take a while as 10mil records are generated in a csv)
+- Run `npm run db:seed`
 - Run `npm run dev:react`
 - Run `npm start`
 
