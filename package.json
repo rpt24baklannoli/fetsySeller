@@ -43,7 +43,8 @@
     "start": "nodemon server/server.js",
     "dev:react": "webpack --watch",
     "db:setup": "psql < db/schema.sql",
-    "db:seed": "node db/seed.js"
+    "db:generate-data": "node db/generate_csv.js",
+    "db:seed": "psql < db/csv_to_table.sql"
   },
   "repository": {
     "type": "git",
