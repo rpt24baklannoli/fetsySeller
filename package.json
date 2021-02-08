@@ -15,6 +15,7 @@
     "express": "^4.17.1",
     "faker": "^5.1.0",
     "file-loader": "^6.2.0",
+    "mongoose": "^5.11.15",
     "nodemon": "^2.0.6",
     "pg": "^8.5.1",
     "react": "^16.14.0",
@@ -43,7 +44,8 @@
     "start": "nodemon server/server.js",
     "dev:react": "webpack --watch",
     "db:setup": "psql < db/schema.sql",
-    "db:seed": "node db/seed.js"
+    "db:generate-data": "node db/generate_csv.js",
+    "db:seed": "mongoimport --type csv -d fetsy -c sellers --headerline --drop db/mongoDB_sellers.csv"
   },
   "repository": {
     "type": "git",
