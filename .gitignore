@@ -6,3 +6,4 @@ bundle.*
 *.csv
 newrelic*
 .DS_Store
+loaderio*

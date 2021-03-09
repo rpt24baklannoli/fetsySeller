@@ -4,8 +4,8 @@ const app = express();
 const axios = require('axios');
 const seller = require('../controller/index.js');
 const OTHER_IPS = {
-  shopping: 'SHOPPING_SERVICE_IP_GOES_HERE',
-  items: 'ITEMS_SERVICE_IP_GOES_HERE'
+  shopping: '13.52.16.25:3004',
+  images: '3.101.55.156:3006'
 };
 var compression = require('compression');
 
@@ -79,8 +79,8 @@ app.get('/shopping/items', (req, res) => {
   });
 });
 
-app.get('/item/images', (req, res) => {
-  axios.get(`http://${OTHER_IPS.items}/item/images`).then(function (response) {
+app.get('/items/images', (req, res) => {
+  axios.get(`http://${OTHER_IPS.images}/items/images`).then(function (response) {
     // console.log('IMAGES', response.data)
     res.send(response.data);
   })
