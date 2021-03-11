@@ -32,7 +32,7 @@ app.post('/items/:item_id/seller', (req, res) => {
 });
 
 app.get('/items/:item_id/seller', (req, res) => {
-  console.log('hit me yo');
+  // console.log('hit me yo');
   let { item_id } = req.params;
   let args = [item_id];
   seller.read(args)
