@@ -3,6 +3,10 @@ const express = require('express');
 const app = express();
 const axios = require('axios');
 const seller = require('../controller/index.js');
+const OTHER_IPS = {
+  shopping: '13.52.16.25:3004',
+  images: '3.101.55.156:3006'
+};
 var compression = require('compression');
 
 app.use(express.static('./react-client/dist'));
@@ -28,6 +32,7 @@ app.post('/items/:item_id/seller', (req, res) => {
 });
 
 app.get('/items/:item_id/seller', (req, res) => {
+  // console.log('hit me yo');
   let { item_id } = req.params;
   let args = [item_id];
   seller.read(args)
@@ -65,7 +70,7 @@ app.delete('/items/:item_id/seller', (req, res) => {
 });
 
 app.get('/shopping/items', (req, res) => {
-  axios.get('http://18.222.223.190:3004/shopping/items').then(function(response) {
+  axios.get(`http://${OTHER_IPS.shopping}/shopping/items`).then(function(response) {
     // console.log('shopping data: ', response.data)
     res.send(response.data);
   })
@@ -75,8 +80,8 @@ app.get('/shopping/items', (req, res) => {
   });
 });
 
-app.get('/item/images', (req, res) => {
-  axios.get('http://13.52.213.118:3006/item/images').then(function (response) {
+app.get('/items/images', (req, res) => {
+  axios.get(`http://${OTHER_IPS.images}/items/images`).then(function (response) {
     // console.log('IMAGES', response.data)
     res.send(response.data);
   })

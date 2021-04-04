@@ -79,7 +79,7 @@ class App extends React.Component {
 
   componentDidMount() {
     let val = Number(window.location.pathname.split('/')[2]);
-    console.log(val);
+    // console.log(val);
     let item_id = isNaN(val) ? 1 : val;
 
     this.setState({

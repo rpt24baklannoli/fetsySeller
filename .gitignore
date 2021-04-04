@@ -5,3 +5,5 @@ bundle.*
 *.env
 *.csv
 newrelic*
+.DS_Store
+loaderio*

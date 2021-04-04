@@ -105,8 +105,8 @@ function Seller(props) {
     <div>
       <MEET>Meet your seller</MEET>
       <SELLERCONTAINER>
-        {/* <SELLERIMG src="https://picsum.photos/75"></SELLERIMG> */}
-        <SELLERIMG src="example_image.jpg"></SELLERIMG>
+        <SELLERIMG src="https://picsum.photos/75"></SELLERIMG>
+        {/* <SELLERIMG src="example_image.jpg"></SELLERIMG> */}
         <SELLERASIDE>
           <SHOPOWNER>Shop Owner</SHOPOWNER>
           <OWNER>Owner of <SELLERNAME>{props.seller.seller_name}</SELLERNAME></OWNER>
